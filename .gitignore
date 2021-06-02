@@ -1,0 +1,7 @@
+/.idea
+/public
+/node_modules
+/fly-company-frontend.iml
+
+# Project exclude paths
+/prod/node_modules/

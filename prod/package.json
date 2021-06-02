@@ -1,0 +1,14 @@
+{
+  "name": "fly-company-frontend",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node express.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "keywords": [],
+  "author": "nekogochan",
+  "license": "ISC"
+}

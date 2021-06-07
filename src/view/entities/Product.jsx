@@ -22,7 +22,7 @@ export const ProductJsx = {
         )
     },
     toShort(item) {
-        return item.code + " " + item.model;
+        return item.code + " " + ModelJsx.toShort(item.model);
     },
     toLink(item) {
         return (

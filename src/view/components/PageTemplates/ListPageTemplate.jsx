@@ -6,7 +6,12 @@ export function List({supplier, toJsx}) {
 
     const [entities, pending, error] = useRequest(supplier);
 
-    if (error) handleApiError("Can't get list", error);
+    console.log([entities, pending, error]);
+
+    if (error) {
+        handleApiError("Can't get list", error);
+        return "error";
+    }
     if (pending) return "...loading";
 
     return entities.length === 0

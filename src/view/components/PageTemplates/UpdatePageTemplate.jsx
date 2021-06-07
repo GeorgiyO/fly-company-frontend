@@ -11,7 +11,10 @@ export function Update({API, Template, url,  Inputs, label, toId = (entity) => e
 
     const [entity, pending, error] = useRequest(API.get, id);
 
-    if (error) handleApiError("Can't get entity", error);
+    if (error) {
+        handleApiError("Can't get entity", error);
+        return "error";
+    }
     if (pending) return "...loading";
 
     const template = Reflect.construct(Template, []).fromInstance(entity);

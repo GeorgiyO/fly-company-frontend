@@ -3,7 +3,7 @@ import {useHistory, useParams} from "react-router-dom";
 import {handleApiError} from "src/view/components/apiErrorHandler";
 import {useRequest} from "src/model/sendRequest";
 
-export function Page({showDelete = false, showUpdate = false, API, toJsx, url}) {
+export function Page({showDelete = false, showUpdate = false, API, toJsx, url, entityRequest = API.get}) {
 
     const {id} = useParams();
     const history = useHistory();
@@ -22,9 +22,12 @@ export function Page({showDelete = false, showUpdate = false, API, toJsx, url}) 
         history.push(url + "/update/" + id);
     }
 
-    const [entity, pending, error] = useRequest(API.get, id);
+    const [entity, pending, error] = useRequest(entityRequest, id);
 
-    if (error) handleApiError("Can't get entity", error);
+    if (error) {
+        handleApiError("Can't get entity", error);
+        return "error";
+    }
     if (pending) return "...loading";
 
     return (

@@ -8,6 +8,7 @@ export const BrandJsx = {
             <div>
                 {Entry.of("id", item.id)}
                 {Entry.of("type", item.name)}
+                {Entry.of("sales", item.sales)}
             </div>
         )
     },

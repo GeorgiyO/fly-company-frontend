@@ -1,5 +1,3 @@
-import {Input} from "src/view/components/input";
-
 export class AbstractTemplate {
 
     idProp = "id";

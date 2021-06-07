@@ -37,7 +37,10 @@ export function EntitySelect({
         valueRef.set(entities[0]);
     }
 
-    const setRefValue = (json) => valueRef.set(JSON.parse(json));
+    const setRefValue = (json) => {
+        console.log(json);
+        valueRef.set(JSON.parse(json));
+    }
 
     const handleSelect = (e) => {
         setRefValue(e.target.value);

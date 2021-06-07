@@ -97,7 +97,6 @@ button, input[type=submit] {
 input {
   @include font();
   font-size: 20px;
-  -webkit-appearance: none;
 
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
@@ -204,6 +203,10 @@ select {
     .input-container input {
       display: inline-block;
       width: 400px;
+      &[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     .select-container select {
@@ -288,7 +291,7 @@ select {
   }
 
   .left {
-    width: 200px;
+    width: 250px;
   }
 }
 

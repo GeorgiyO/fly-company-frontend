@@ -2,6 +2,16 @@ import {sendRequest as req} from "src/model/sendRequest";
 
 export class APIBuilder {
 
+    static full(url) {
+        return new APIBuilder(url)
+            .all()
+            .get()
+            .add()
+            .delete()
+            .update()
+            .build();
+    }
+
     constructor(url) {
         this.url = url;
         this.api = {};

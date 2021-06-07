@@ -4,7 +4,7 @@ import {Observable} from "src/domain/observable";
 
 export function Header() {
 
-    const [cashier] = Observable.useWatch(session.role.cashier);
+    const [moder] = Observable.useWatch(session.role.moder);
     const [admin] = Observable.useWatch(session.role.admin);
 
     const links = [];
@@ -12,20 +12,20 @@ export function Header() {
     const link = (to, text) => links.push(<NavLink key={i++} activeClassName={"current"} to={to}>{text}</NavLink>);
 
     link("/overview", "Overview");
-    link("/planes", "Planes");
-    link("/address", "Address");
-    link("/schedule", "Schedule");
-    link("/places", "Places");
-
-    if (cashier) {
-        link("/offers", "Offers");
-    }
+    link("/body-type", "Body Type");
+    link("/engine-type", "Engine Type");
+    link("/brand", "Brand");
+    link("/model", "Model");
+    link("/country", "Country");
+    link("/specification", "Specification");
+    link("/product", "Product");
+    link("/client", "Client");
 
     if (admin) {
-        link("/cashiers", "Cashiers");
+        link("/moder", "Moder");
     }
 
-    if (cashier || admin) {
+    if (moder || admin) {
         link("/logout", "Log out");
     } else {
         link("/login", "Log in");

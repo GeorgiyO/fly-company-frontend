@@ -19,7 +19,6 @@ export function Page({showDelete = false, showUpdate = false, API, toJsx, url}) 
     }
 
     const updateAction = () => {
-        console.log(url);
         history.push(url + "/update/" + id);
     }
 

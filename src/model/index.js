@@ -6,7 +6,7 @@ window.serverUrl = config.server.url;
 
 window.session = {
     role: {
-        cashier: new Observable(false),
+        moder: new Observable(false),
         admin: new Observable(false),
     }
 };

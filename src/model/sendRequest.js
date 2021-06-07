@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 
 export const sendRequest = async (method, url, data) => {
 
-    console.log(method, url, data);
-
     const init = {
         method,
         headers: {
@@ -23,6 +21,8 @@ export const sendRequest = async (method, url, data) => {
     }
 
     await sleep(100);
+
+    console.log(serverUrl + url, init.headers, data);
 
     const response = await fetch(serverUrl + url, init);
 

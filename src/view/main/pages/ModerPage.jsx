@@ -3,42 +3,42 @@ import {Observable} from "src/domain/observable";
 import {useRouteMatch} from "react-router-dom";
 import {MenuBuilder} from "src/view/components/entity/MenuBuilder";
 import {Add} from "src/view/components/PageTemplates/AddPageTemplate";
-import {API, Template} from "src/model/entities/Cashiers";
+import {ModerAPI, ModerTemplate} from "src/model/entities/Moder";
 import {Input} from "src/view/components/input";
 import {Page} from "src/view/components/PageTemplates/EntityPageTemplate";
-import {CashiersJsx} from "src/view/entities/Cashiers";
+import {ModerJsx} from "src/view/entities/Moder";
 import {List} from "src/view/components/PageTemplates/ListPageTemplate";
 
-export function CashiersPage() {
+export function ModerPage() {
 
     const [admin] = Observable.useWatch(session.role.admin);
     const url = useRouteMatch().url;
 
     return new MenuBuilder(url)
-        .addLink("", "Cashiers list", admin)
-        .addLink("/add", "Add cashier", admin)
+        .addLink("", "Moder list", admin)
+        .addLink("/add", "Add Moder", admin)
 
         .addRoute("/add",
             () => <Add
-                API={API}
-                Template={Template}
+                API={ModerAPI}
+                Template={ModerTemplate}
                 url={url}
                 Inputs={Inputs}
-                label={"Cashier"}
+                label={"Moder"}
             />, admin)
 
         .addRoute("/:id",
             () => <Page
-                API={API}
+                API={ModerAPI}
                 showDelete
-                toJsx={CashiersJsx.toJsx}
+                toJsx={ModerJsx.toJsx}
                 url={url}
             />, admin)
 
         .addRoute("",
             () => <List
-                supplier={API.all}
-                toJsx={CashiersJsx.toLink}
+                supplier={ModerAPI.all}
+                toJsx={ModerJsx.toLink}
             />, admin)
 
         .build();

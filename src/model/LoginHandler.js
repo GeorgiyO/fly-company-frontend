@@ -14,7 +14,7 @@ export const LoginHandler = Reflect.construct(class LoginHandler {
         return sendRequest("POST", "/logout")
             .then((response) => response.json())
             .then(() => {
-                session.role.cashier.set(false);
+                session.role.moder.set(false);
                 session.role.admin.set(false);
             });
     }
@@ -28,7 +28,7 @@ export const LoginHandler = Reflect.construct(class LoginHandler {
     }
 
     setUserRole(role) {
-        session.role.cashier.set(role === "cashier" || role === "admin");
+        session.role.moder.set(role === "moder" || role === "admin");
         session.role.admin.set(role === "admin");
     }
 

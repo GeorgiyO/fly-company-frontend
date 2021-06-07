@@ -4,12 +4,15 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import {LogoutPage} from "src/view/main/pages/LogoutPage";
 import {Overview} from "src/view/main/Overview";
 import {LoginPage} from "src/view/main/pages/LoginPage";
-import {PlanesPage} from "src/view/main/pages/PlanesPage";
-import {AddressPage} from "src/view/main/pages/AddressPage";
-import {SchedulePage} from "src/view/main/pages/SchedulePage";
-import {PlacesPage} from "src/view/main/pages/PlacesPage";
-import {OffersPage} from "src/view/main/pages/OffersPage";
-import {CashiersPage} from "src/view/main/pages/CashiersPage";
+import {ModerPage} from "src/view/main/pages/ModerPage";
+import {BodyType} from "src/view/main/pages/BodyType";
+import {EngineType} from "src/view/main/pages/EngineType";
+import {Brand} from "src/view/main/pages/Brand";
+import {Country} from "src/view/main/pages/Country";
+import {Specification} from "src/view/main/pages/Specification";
+import {Product} from "src/view/main/pages/Product";
+import {Client} from "src/view/main/pages/Client";
+import {Model} from "src/view/main/pages/Model";
 
 export function Main() {
 
@@ -20,12 +23,15 @@ export function Main() {
     route("/overview", Overview);
     route("/logout", LogoutPage);
     route("/login", LoginPage);
-    route("/planes", PlanesPage);
-    route("/address", AddressPage);
-    route("/schedule", SchedulePage);
-    route("/places", PlacesPage);
-    route("/offers", OffersPage);
-    route("/cashiers", CashiersPage);
+    route("/moder", ModerPage);
+    route("/body-type", BodyType);
+    route("/engine-type", EngineType);
+    route("/brand", Brand);
+    route("/model", Model)
+    route("/country", Country);
+    route("/specification", Specification);
+    route("/product", Product);
+    route("/client", Client);
 
     return (
         <div className={"main"}>

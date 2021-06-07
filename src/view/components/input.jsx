@@ -1,6 +1,22 @@
 import React from "react";
 import {Observable} from "src/domain/observable";
 
+export function Checkbox({label, valueRef}) {
+
+    const [value, setValue] = Observable.useWatch(valueRef);
+
+    const handle = (e) => {
+        setValue(e.target.checked);
+    }
+
+    return (
+        <div className={"input-container"}>
+            <p>{label}:</p>
+            <input name={"ХУЙ"} type={"checkbox"} checked={value} onChange={handle}/>
+        </div>
+    )
+}
+
 export function Input({type, label, valueRef, errorsRef = new Observable([]), inputDecorator = (val) => val}) {
 
     const [value, setValue] = Observable.useWatch(valueRef);

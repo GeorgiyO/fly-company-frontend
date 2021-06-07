@@ -4,7 +4,7 @@ import {useRequest} from "src/model/sendRequest";
 import {handleApiError} from "src/view/components/apiErrorHandler";
 import {Form} from "src/view/components/entity/Form";
 
-export function Update({API, Template, url,  Inputs, label}) {
+export function Update({API, Template, url,  Inputs, label, toId = (entity) => entity.id}) {
 
     const history = useHistory();
     const {id} = useParams();
@@ -19,7 +19,7 @@ export function Update({API, Template, url,  Inputs, label}) {
     const update = () => {
         API.update(id, template.toInstance())
             .then((entity) => {
-                history.push(url + "/" + entity.id)
+                history.push(url + "/" + toId(entity))
             })
             .catch((error) => {
                 handleApiError("Can't update", error);

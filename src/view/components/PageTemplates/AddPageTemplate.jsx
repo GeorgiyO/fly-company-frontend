@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {handleApiError} from "src/view/components/apiErrorHandler";
 import {Form} from "src/view/components/entity/Form";
 
-export function Add({API, Template, url, Inputs, label}) {
+export function Add({API, Template, url, Inputs, label, toId = (entity) => entity.id}) {
 
     const history = useHistory();
     const template = Reflect.construct(Template, []);
@@ -11,7 +11,7 @@ export function Add({API, Template, url, Inputs, label}) {
     const add = () => {
         API.add(template.toInstance())
             .then((entity) => {
-                history.push(url + "/" + entity.id)
+                history.push(url + "/" + toId(entity))
             })
             .catch((error) => {
                 handleApiError("Can't add", error);

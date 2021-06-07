@@ -16,7 +16,7 @@ export class Observable {
         return [val, observable.set.bind(observable)];
     }
 
-    static field = () => new Observable("");
+    static field = (val = "") => new Observable(val);
     static idObj = () => new Observable({id: -1});
 
     constructor(val) {
